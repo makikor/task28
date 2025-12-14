@@ -1,0 +1,35 @@
+body {
+    color: #999;
+}
+
+.box{
+    box-sizing: border-box;
+    margin: 2px;
+    width: 98%;
+    height: 98%;
+    border-style: solid;
+    border-color: rgb(213, 219, 211);
+    border-radius: 10%;
+}
+
+.row{
+    
+    display: flex;
+    width: 800px;
+    height: 200px;
+    align-content: center;
+
+}
+
+.board{
+    margin: auto;
+    width: 800px;
+    height: 800px;
+}
+
+.active_goblin{
+    background-image: url("../img/goblin.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
