@@ -1,1 +1,1 @@
-![CI](https://github.com/<makikor>/<task28>/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/makikor/task28/actions/workflows/web.yml/badge.svg)
