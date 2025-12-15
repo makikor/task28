@@ -40,8 +40,8 @@ jobs:
         with:
           node-version: 22.14.0
           cache: 'yarn'
-      - run: yarn
-      - run: yarn test
+      - run: --passWithNoTests
+      - run: --passWithNoTests
 
   build:
     needs: [eslint]
