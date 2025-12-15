@@ -27,5 +27,6 @@ export class GoblinGame {
       boxs[randomBox].classList.add("active_goblin");
       setTimeout(() => boxs[randomBox].classList.remove("active_goblin"), 2000);
     }, 5000);
+    
   }
 }
