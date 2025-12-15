@@ -20,13 +20,23 @@ export class GoblinGame {
     }
   }
 
-  start() {
+  start(Icon) {
     const boxs = this._body.querySelectorAll(".box");
+    const imageGoblin = new Image();
+    imageGoblin.src = Icon;
+    imageGoblin.classList.add("icon_goblin");
+
+    function random(max, min) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
     setInterval(() => {
-      const randomBox = Math.floor(Math.random() * boxs.length);
-      boxs[randomBox].classList.add("active_goblin");
-      setTimeout(() => boxs[randomBox].classList.remove("active_goblin"), 2000);
-    }, 5000);
-    
+      let i;
+      let x = random(1, 16);
+      if (i == undefined || i != x) {
+        boxs[x].append(imageGoblin);
+      }
+      i = x;
+    }, 1000);
   }
 }
