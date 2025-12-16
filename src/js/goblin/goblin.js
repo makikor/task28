@@ -1,9 +1,10 @@
 export class GoblinGame {
   constructor(body) {
     this._body = body;
+    this.randomaizer;
   }
 
-  rendering() {
+  renderingBoard() {
     const board = document.createElement("div");
     this._body.classList.add("board");
     this._body.append(board);
@@ -20,23 +21,27 @@ export class GoblinGame {
     }
   }
 
-  start(Icon) {
+  goblinMove(Icon) {
     const boxs = this._body.querySelectorAll(".box");
     const imageGoblin = new Image();
     imageGoblin.src = Icon;
     imageGoblin.classList.add("icon_goblin");
+    imageGoblin.setAttribute("alt", "goblin");
 
-    function random(max, min) {
-      return Math.floor(Math.random() * (max - min) + min);
+    const set = new Set();
+    while (set.size < boxs.length) {
+      set.add(Math.floor(Math.random() * (boxs.length- 0)));
     }
-
-    setInterval(() => {
-      let i;
-      let x = random(1, 16);
-      if (i == undefined || i != x) {
-        boxs[x].append(imageGoblin);
+    
+    this.randomaizer = [...set];
+    let index = 0;
+    let stopSetInterval = setInterval(() => {
+      boxs[this.randomaizer[index]].append(imageGoblin);
+      index++;
+      if (index == this.randomaizer.length) {
+        console.log("игра окончена");
+        clearInterval(stopSetInterval);
       }
-      i = x;
     }, 1000);
   }
 }

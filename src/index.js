@@ -3,5 +3,5 @@ import { GoblinGame } from "./js/goblin/goblin";
 import Icon from "./img/goblin.png";
 
 const Game = new GoblinGame(document.body);
-Game.rendering();
-Game.start(Icon);
+Game.renderingBoard();
+Game.goblinMove(Icon);
