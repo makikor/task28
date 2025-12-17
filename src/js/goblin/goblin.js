@@ -28,20 +28,20 @@ export class GoblinGame {
     imageGoblin.classList.add("icon_goblin");
     imageGoblin.setAttribute("alt", "goblin");
 
-    const set = new Set();
-    while (set.size < boxs.length) {
-      set.add(Math.floor(Math.random() * (boxs.length- 0)));
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min));
     }
-    
-    this.randomaizer = [...set];
-    let index = 0;
-    let stopSetInterval = setInterval(() => {
-      boxs[this.randomaizer[index]].append(imageGoblin);
-      index++;
-      if (index == this.randomaizer.length) {
-        console.log("игра окончена");
-        clearInterval(stopSetInterval);
-      }
+
+    let previousIndex;
+
+    setInterval(() => {
+      let randomIndex;
+      do {
+        randomIndex = random(0, boxs.length);
+      } while (previousIndex !== undefined && randomIndex === previousIndex);
+      console.log(randomIndex);
+      boxs[randomIndex].append(imageGoblin);
+      previousIndex = randomIndex;
     }, 1000);
   }
 }
